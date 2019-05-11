@@ -1,8 +1,10 @@
 #! /usr/bin/env python3
 
+import importlib
 import vcf
+import httplib2
 
-__author__ = 'XXX'
+__author__ = 'Lisa Schneider'
 
 
 ##
@@ -20,10 +22,20 @@ __author__ = 'XXX'
 class Assignment3:
     
     def __init__(self):
-        ## Check if pyvcf is installed
-        print("PyVCF version: %s" % vcf.VERSION)
-        
-        ## Call annotate_vcf_file here
+        ''''
+        check if pyvcf is installed and print version
+        '''
+        vcf_exists = importlib.util.find_spec("vcf")
+        if vcf_exists:
+            if "vcf" in dir():
+                print("PyVCF version: %s" % vcf.VERSION)
+            else:
+                print("PyVCF installed but not imported.")
+        else:
+            print("ERROR! PyVCF not installed. "
+                  "Run \n"
+                  "$ pip3 install pyvcf \n"
+                  "to install. ")
         
 
     def annotate_vcf_file(self):
@@ -39,7 +51,7 @@ class Assignment3:
         ##
         ## Example code for 1 variant
         ##
-        import httplib2
+        # import httplib2
         h = httplib2.Http()
         headers = {'content-type': 'application/x-www-form-urlencoded'}
         params = 'ids=chr16:g.28883241A>G,chr1:g.35367G>A'
