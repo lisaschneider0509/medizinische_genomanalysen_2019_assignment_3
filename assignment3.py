@@ -111,10 +111,16 @@ class Assignment3:
                         counter += 1
         print(f"Number of non synonymous variants: {counter}")
 
-    def view_vcf_in_browser(self):  # todo does not display anything
+    def view_vcf_in_browser(self):  
+        '''
+        - Open a browser and go to https://vcf.iobio.io/
+        - Upload the VCF file and investigate the details
+        :return: Nothing
+        '''
         ## Document the final URL here
         print("The vcf file was compressed and indexed and the results were visualized with the vcf.iobio website.\n" 
-              "\t https://vcf.iobio.io/?species=Human&build=GRCh38")
+              "\t https://vcf.iobio.io/?species=Human&build=GRCh38\n"
+              "Upload a .tar.gz and a .tar.gz.tbi archive of your vcf-File")
 
 
     def print_summary(self):
